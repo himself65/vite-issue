@@ -20,3 +20,5 @@ const server = await vite.createServer({
   const m = await server.ssrLoadModule('fake-package')
   console.log('m', m.default())
 }
+
+await server.close()
