@@ -16,3 +16,7 @@ const server = await vite.createServer({
   const m = await server.ssrLoadModule('./src/foo.ts')
   console.log('m', m.default())
 }
+{
+  const m = await server.ssrLoadModule('fake-package')
+  console.log('m', m.default())
+}
