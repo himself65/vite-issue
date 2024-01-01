@@ -11,9 +11,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "fake-package": "workspace:*"
-  },
   "devDependencies": {
     "vite": "^5.0.10"
   }

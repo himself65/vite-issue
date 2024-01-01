@@ -1,33 +1,16 @@
 import * as vite from 'vite'
-import 'fake-package'
-import path from 'node:path'
 
-const server = await vite.createServer({
-  appType: 'custom',
-  server: {
-    middlewareMode: true
-  }
-})
+async function createServer () {
+  const config = await vite.resolveConfig({})
+  const merged = vite.mergeConfig(config, {
+    server: { middlewareMode: true }
+  })
+  // HACK: Vite bug: TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received function assetsInclude
+  merged.assetsInclude = null;
+  const server = await vite.createServer(merged)
 
-{
-  const m = await server.ssrLoadModule('./src/bar.ts')
-  console.log('m', m.default())
-}
-{
-  const m = await server.ssrLoadModule('./src/foo.ts')
-  console.log('m', m.default())
-}
-{
-  const m = await server.ssrLoadModule('fake-package')
-  console.log('m', m.default())
-}
-{
-  const m = await server.ssrLoadModule('./packages/fake-package')
-  console.log('m', m.default())
-}
-{
-  const m = await server.ssrLoadModule(path.resolve('./packages/fake-package'))
-  console.log('m', m.default())
+  await server.ssrLoadModule('./src/foo.ts')
+  await server.close()
 }
 
-await server.close()
+await createServer()

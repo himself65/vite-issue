@@ -7,16 +7,10 @@ settings:
 importers:
 
   .:
-    dependencies:
-      fake-package:
-        specifier: workspace:*
-        version: link:packages/fake-package
     devDependencies:
       vite:
         specifier: ^5.0.10
         version: 5.0.10
-
-  packages/fake-package: {}
 
 packages:
 
