@@ -1,5 +1,5 @@
 import * as vite from 'vite'
-import './src/inner.js'
+import 'fake-package'
 
 const server = await vite.createServer({
   appType: 'custom',

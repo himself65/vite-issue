@@ -1,6 +1,6 @@
-import { inner } from './inner.js'
+import f from 'fake-package'
 
-export default function bar() {
-  inner()
+export default function bar () {
+  f()
   return 'hello bar'
 }

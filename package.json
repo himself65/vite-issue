@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "make": "cp -r ./fake-package ./node_modules/",
     "start": "node ./server.js"
   },
   "keywords": [],

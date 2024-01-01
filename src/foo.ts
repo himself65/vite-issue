@@ -1,4 +1,4 @@
 export default function foo() {
-  import('./inner.js')
+  import('fake-package')
   return 'hello foo'
 }
