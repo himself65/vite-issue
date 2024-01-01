@@ -1,5 +1,6 @@
 import * as vite from 'vite'
 import 'fake-package'
+import path from 'node:path'
 
 const server = await vite.createServer({
   appType: 'custom',
@@ -18,6 +19,14 @@ const server = await vite.createServer({
 }
 {
   const m = await server.ssrLoadModule('fake-package')
+  console.log('m', m.default())
+}
+{
+  const m = await server.ssrLoadModule('./packages/fake-package')
+  console.log('m', m.default())
+}
+{
+  const m = await server.ssrLoadModule(path.resolve('./packages/fake-package'))
   console.log('m', m.default())
 }
 
