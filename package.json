@@ -5,13 +5,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "make": "cp -r ./fake-package ./node_modules/",
-    "start": "node ./server.js"
+    "build": "node ./build.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^5.0.10"
+    "vite": "^5.0.11",
+    "vite-plugin-wasm": "^3.3.0"
+  },
+  "dependencies": {
+    "@code-hike/lighter": "^0.9.0"
   }
 }
